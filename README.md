@@ -14,3 +14,7 @@ Para arrancar MongoDB:
 
 Para arrancar el cliente Mongo:
     bin\mongo
+
+
+Resetear la base de datos:
+    npm run installDB
