@@ -40,12 +40,24 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+
+  // Establecemos el status a error
+  res.status(err.status || 500);
+
+  // Si es una petición al API respondo JSON
+  if (isApi(req)) {
+    res.json({ success: flase, error: err.message });
+    return;
+  }
+
+   //...y si la petición NO es al API respondo con HTML:
+
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  
   res.render('error');
 });
 
