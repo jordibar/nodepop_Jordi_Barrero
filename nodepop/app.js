@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes/apiv1/anuncios'));
 app.use('/users', require('./routes/users'));
 
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
@@ -41,12 +41,20 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
 
+  if (err.array) { // validation error
+    err.status = 422;
+    const errInfo = err.array({ onlyFirstError: true })[0];
+    err.message = isAPI(req) ?
+      { message: 'Not valid', errors: err.mapped()}
+      : `Not valid - ${errInfo.param} ${errInfo.msg}`;
+  }
+
   // Establecemos el status a error
   res.status(err.status || 500);
 
   // Si es una petición al API respondo JSON
-  if (isApi(req)) {
-    res.json({ success: flase, error: err.message });
+  if (isAPI(req)) {
+    res.json({ success: false, error: err.message });
     return;
   }
 
@@ -60,5 +68,9 @@ app.use(function(err, req, res, next) {
   
   res.render('error');
 });
+
+function isAPI(req) {
+  return req.originalUrl.indexOf('/api') === 0;
+}
 
 module.exports = app;

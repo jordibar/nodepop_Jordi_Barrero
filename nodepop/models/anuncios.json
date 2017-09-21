@@ -1,18 +1,53 @@
 {
     "anuncios": [
         {
-            "nombre": "Bicicleta",
+            "nombre": "bicicleta",
             "venta": true,
             "precio": 240.15,
             "foto": "bici.jpg",
             "tags": [ "lifestyle", "motor"]
         },
         {
-            "nombre": "iPhone 3GS",
+            "nombre": "iphone",
             "venta": false,
             "precio": 50,
             "foto": "iphone.png",
             "tags": [ "lifestyle", "mobile"]
+        },
+        {
+            "nombre": "coche",
+            "venta": true,
+            "precio": 1500,
+            "foto": "coche.png",
+            "tags": [ "lifestyle", "motor"]
+        },
+        {
+            "nombre": "mesa",
+            "venta": true,
+            "precio": 120,
+            "foto": "mesa.png",
+            "tags": [ "work"]
+        },
+        {
+            "nombre": "chaqueta",
+            "venta": true,
+            "precio": 45,
+            "foto": "chaqueta.png",
+            "tags": [ "lifestyle"]
+        },
+        {
+            "nombre": "tableta",
+            "venta": false,
+            "precio": 99,
+            "foto": "tableta.png",
+            "tags": [ "lifestyle", "mobile"]
+        },
+        {
+            "nombre": "moto",
+            "venta": false,
+            "precio": 600,
+            "foto": "moto.png",
+            "tags": [ "lifestyle", "motor"]
         }
     ]
 }

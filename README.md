@@ -18,3 +18,17 @@ Para arrancar el cliente Mongo:
 
 Resetear la base de datos:
     npm run installDB
+
+
+# Peticiones
+
+Listar todos los anuncios, sin filtros:
+    http://localhost:3000/
+
+Listar por tag:
+    http://localhost:3000/apiv1/anuncios/?tags=mobile
+
+Listar por nombre:
+    http://localhost:3000/apiv1/anuncios/?nombre=coche
+
+

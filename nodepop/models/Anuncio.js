@@ -11,6 +11,14 @@ const anuncioSchema = mongoose.Schema({
     tags: [String]
 });
 
+
+// Añadimos método estático
+anuncioSchema.statics.list = function(filter, callback) {
+    const query = Anuncio.find(filter);
+    query.exec(callback);
+}
+
+
 // Crear el modelo
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
