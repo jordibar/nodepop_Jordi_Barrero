@@ -35,6 +35,11 @@ app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 // servir estáticos
 app.use( express.static( path.join(__dirname, 'public/images')));
 
+
+
+
+// Gestión de errores
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -63,13 +68,11 @@ app.use(function(err, req, res, next) {
   }
 
    //...y si la petición NO es al API respondo con HTML:
-
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  
+  // render the error page  
   res.render('error');
 });
 

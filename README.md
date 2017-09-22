@@ -43,6 +43,12 @@ Listar por si es Venta o Búsqueda (true o false):
     http://localhost:3000/apiv1/anuncios/?venta=false
 
 Listar por precio:
+    precio: 10-50
+        http://localhost:3000/apiv1/anuncios/?precio=10-50
+    precio: 10-
+        http://localhost:3000/apiv1/anuncios/?precio=10-
+    precio: -50
+        http://localhost:3000/apiv1/anuncios/?precio=-50
     precio: 50
         http://localhost:3000/apiv1/anuncios/?precio=50
 
@@ -50,7 +56,7 @@ Listar por principio de nombre:
     http://localhost:3000/apiv1/anuncios/?nombre=ip
 
 Consulta múltiple:
-http://localhost:3000/apiv1/anuncios/?tags=lifestyle&venta=true&precio=45
+http://localhost:3000/apiv1/anuncios/?tags=lifestyle&venta=true&precio=1500
 
 Archivo estático
 http://localhost:3000/images/bicicleta.jpg

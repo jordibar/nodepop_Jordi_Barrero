@@ -27,13 +27,29 @@ router.get('/', (req, res, next) => {
         filter.tags = tags;
     }
     if(nombre) {
-        filter.nombre = nombre;
+        filter.nombre = new RegExp('^' + nombre, "i");
     }
     if(venta) {
         filter.venta = venta;
     }
     if(precio) {
-        filter.precio = precio;
+        switch (precio) {
+            case "10-50":
+                filter.precio = {'$gte':10, '$lte':50};
+                break;
+            case "10-":
+                filter.precio = {'$gte':10};
+                break;
+            case "-50":
+                filter.precio = {'$lte':50};
+                break;
+            case "50":
+                filter.precio = 50;
+                break;
+            default:
+                filter.precio = precio;
+        }
+        
     }
 
 
@@ -51,7 +67,7 @@ router.get('/', (req, res, next) => {
             title: 'NODEPOP by Jordi Barrero',
             lista: lista
         });
-        console.log(lista[1].foto);
+        //console.log(lista[1].foto);
     });
 });
 

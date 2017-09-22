@@ -24,14 +24,14 @@
         {
             "nombre": "mesa",
             "venta": true,
-            "precio": 120,
+            "precio": 45,
             "foto": "http://localhost:3000/images/mesa.jpg",
             "tags": [ "work"]
         },
         {
             "nombre": "chaqueta",
             "venta": true,
-            "precio": 45,
+            "precio": 15,
             "foto": "http://localhost:3000/images/chaqueta.jpg",
             "tags": [ "lifestyle"]
         },
