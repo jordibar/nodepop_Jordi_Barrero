@@ -10,16 +10,16 @@
 
     <% lista.forEach(function(anuncio) { %>
       <h2><%= anuncio.nombre %></h2>
+
+      <img src="<%= anuncio.foto %>"></img>
       
       <% if (anuncio.venta) { %>
         <p>Venta</p>
       <% } else { %>
-        <p>Compra</p>
+        <p>Busco</p>
       <% } %>
 
       <p><%= anuncio.precio %>€</p>
-
-      <p><%= anuncio.foto %></p>
 
       <p><%= anuncio.tags %></p>
     

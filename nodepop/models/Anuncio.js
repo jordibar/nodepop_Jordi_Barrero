@@ -4,17 +4,31 @@
 const mongoose = require('mongoose');
 
 const anuncioSchema = mongoose.Schema({
-    nombre: String,
-    venta: Boolean,
-    precio: Number,
+    nombre: {
+        type: String,
+        index: true
+    },
+    venta: {
+        type: Boolean,
+        index: true
+    },
+    precio: {
+        type: Number,
+        index:true
+    },
     foto: String,
-    tags: [String]
+    tags: {
+        type: [String],
+        index: true
+    }
 });
 
 
 // Añadimos método estático
-anuncioSchema.statics.list = function(filter, callback) {
+anuncioSchema.statics.list = function(filter, start, limit, callback) {
     const query = Anuncio.find(filter);
+    query.skip(start);
+    query.limit(limit);
     query.exec(callback);
 }
 

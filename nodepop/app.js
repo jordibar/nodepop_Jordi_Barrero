@@ -31,6 +31,10 @@ app.use('/users', require('./routes/users'));
 
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
+// Archivos estáticos
+// servir estáticos
+app.use( express.static( path.join(__dirname, 'public/images')));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

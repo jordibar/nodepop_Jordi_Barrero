@@ -3,6 +3,8 @@
 const express = require('express');
 const router = express.Router();
 
+
+
 // Cargamos el modelo
 const Anuncio = require('../../models/Anuncio');
 
@@ -12,6 +14,10 @@ router.get('/', (req, res, next) => {
 
     const tags = req.query.tags;
     const nombre = req.query.nombre;
+    const venta = req.query.venta;
+    const precio = req.query.precio;
+    const start = parseInt(req.query.start);
+    const limit = parseInt(req.query.limit);
 
     // Objeto vacío por si no nos pasan ningún filtro
     const filter = {};
@@ -23,10 +29,18 @@ router.get('/', (req, res, next) => {
     if(nombre) {
         filter.nombre = nombre;
     }
-    console.log(filter);
+    if(venta) {
+        filter.venta = venta;
+    }
+    if(precio) {
+        filter.precio = precio;
+    }
+
+
+
 
     // Recuperar una lista de anuncios
-    Anuncio.list(filter, (err, lista) => {
+    Anuncio.list(filter, start, limit, (err, lista) => {
         if (err) {
             console.log('Error'. err);
             next(err); // Para que retorne la página de error
@@ -37,12 +51,14 @@ router.get('/', (req, res, next) => {
             title: 'NODEPOP by Jordi Barrero',
             lista: lista
         });
+        console.log(lista[1].foto);
     });
 });
 
 
 
-// GET /TAG
+
+
 
 
 
