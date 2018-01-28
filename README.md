@@ -2,7 +2,7 @@
 
 URL: nodepop.jordibarrero.com
 
-IP: 18.220.34.175
+IP: http://18.216.159.0/
 
 
 
